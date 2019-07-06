@@ -1,0 +1,5 @@
+<launch>
+  <include file="$(find miivii_gmsl_ros)/launch/1_node_with_4_cameras.launch" />
+
+  <include file="$(find miivii_gmsl_ros)/launch/2_node_with_4_cameras.launch" />
+</launch>

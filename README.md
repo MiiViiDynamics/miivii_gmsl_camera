@@ -19,9 +19,7 @@ Camera:
 | Sensing     |     | http://www.sensing-world.com     |
 | ADAYO     |     | http://www.foryouge.com     |
 | Leopardimaging     | <img src="https://i2.wp.com/leopardimaging.com/wp-content/uploads/2017/11/LI-AR0231-GMSL-R4-060H-.png" width="100">     | https://leopardimaging.com     |
-| SEKONIX     | <img src="http://sekolab.com/wp-content/uploads/2017/04/thumb_camera_600x400.png" width="100">    | http://sekolab.com     |
 | Truly     |      | http://www.sensing-world.com     |
-| Wissen     |     | http://www.wissenstar.com     |
 
 
 ## MiiVii GMSL ROS User Guide

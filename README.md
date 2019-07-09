@@ -1,7 +1,27 @@
 # MiiVii GMSL Camera
 
 MiiVii GMSL Camera demo is an application software running under ROS environment. It depends on MiiVii low level GMSL SDK, and can be run on MiiVii S2 Pro, MiiVii Apex.
-It publish fully synchronized image topics, and color format process is accelerated by hardware, which makes the node cost very limited CPU resource and no GPU resource is used. Various camera vendors are supported.
+It publish fully synchronized image topics, and color format process is accelerated by hardware, which makes the node cost very limited CPU resource. Various camera vendors are supported.
+
+Platform:
+
+| Platform      | Main Chip     | Appearance     |
+| ---------- | :-----------:  | :-----------:  |
+| S2  Pro     |   TX2    |<img src="images/s2pro.png" width="100">|
+| Apex     | Xavier | <img src="http://www.miivii.com/en/img/prodcut1.png" width="100">      |
+
+Camera:
+
+| Brand      | Appearance     | Official Site     |
+| ---------- | :-----------:  | :-----------:  |
+| Calmcar     | <img src="http://www.calmcar.com/assets/images/product/left-camera.png" width="100">      | http://www.calmcar.com     |
+| Etron     | <img src="http://entroninc.com/images/proud/pci.png" width="100">     | http://entroninc.com     |
+| Sensing     |     | http://www.sensing-world.com     |
+| ADAYO     |     | http://www.foryouge.com     |
+| Leopardimaging     | <img src="https://i2.wp.com/leopardimaging.com/wp-content/uploads/2017/11/LI-AR0231-GMSL-R4-060H-.png" width="100">     | https://leopardimaging.com     |
+| SEKONIX     | <img src="http://sekolab.com/wp-content/uploads/2017/04/thumb_camera_600x400.png" width="100">    | http://sekolab.com     |
+| Truly     |      | http://www.sensing-world.com     |
+| Wissen     |     | http://www.wissenstar.com     |
 
 
 ## MiiVii GMSL ROS User Guide
@@ -31,3 +51,8 @@ You can check the image topic in rviz.
 
 MiiVii GMSL Solution provides a configurable synchronize solution, which can be used to configure camera framerate at hardware level.
 1. In launch file, change fps parameter and launch. This will change the low level trigger signal, change the camera shutter at hardware level.
+
+## Contact
+For technology issue, please file bugs on github directly.
+For busniess contact, you can either visit our [taobao shop](https://shop324175547.taobao.com/?spm=a230r.7195193.1997079397.2.3154636cYGG7Vj)
+, or mail to bd#miivii.com

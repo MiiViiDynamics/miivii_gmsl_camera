@@ -10,17 +10,6 @@ Platform:
 | S2  Pro     |   TX2    |<img src="images/s2pro.png" width="100">|
 | Apex     | Xavier | <img src="http://www.miivii.com/en/img/prodcut1.png" width="100">      |
 
-Camera:
-
-| Brand      | Appearance     | Official Site     |
-| ---------- | :-----------:  | :-----------:  |
-| Calmcar     | <img src="http://www.calmcar.com/assets/images/product/left-camera.png" width="100">      | http://www.calmcar.com     |
-| Etron     | <img src="http://entroninc.com/images/proud/pci.png" width="100">     | http://entroninc.com     |
-| Sensing     |     | http://www.sensing-world.com     |
-| ADAYO     |     | http://www.foryouge.com     |
-| Leopardimaging     | <img src="https://i2.wp.com/leopardimaging.com/wp-content/uploads/2017/11/LI-AR0231-GMSL-R4-060H-.png" width="100">     | https://leopardimaging.com     |
-| Truly     |      | http://www.sensing-world.com     |
-
 
 ## MiiVii GMSL ROS User Guide
 

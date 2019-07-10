@@ -1,7 +1,7 @@
 # MiiVii GMSL Camera
 
 MiiVii GMSL Camera demo is an application software running under ROS environment. It depends on MiiVii low level GMSL SDK, and can be run on MiiVii S2 Pro, MiiVii Apex.
-It publish fully synchronized image topics, and color format process is accelerated by hardware, which makes the node cost very limited CPU resource. Various camera vendors are supported.
+It publish fully synchronized image topics, and color format process is accelerated by hardware, which makes the node cost very limited CPU resource. Also, various camera vendors are supported.
 
 Platform:
 
@@ -27,10 +27,17 @@ Clone the repository and build:
 
 ### Run ROS Demo and Display Camera by rviz
 Open 2 terminals, launch miivii_gmsl_ros, rviz.
-Assume we are using only 1 camera in this case.
+
+#### 1 camera connected
 ```
     roslaunch miivii_gmsl_ros 1_node_with_1_camera.launch
 ```
+
+#### 4 camera connected
+```
+    roslaunch miivii_gmsl_ros 1_node_with_4_cameras.launch
+```
+
 You can check the image topic in rviz.
 
 

@@ -1,7 +1,7 @@
 # MiiVii GMSL Camera
 
 MiiVii GMSL Camera demo is an application software running under ROS environment. It depends on MiiVii low level GMSL SDK, and can be run on MiiVii S2 Pro, MiiVii Apex.
-It publish fully synchronized image topics, and color format process is accelerated by hardware, which makes the node cost very limited CPU resource. Various camera vendors are supported.
+It publish fully synchronized image topics, and color format process is accelerated by hardware, which makes the node cost very limited CPU resource. Also, various camera vendors are supported.
 
 Platform:
 
@@ -9,19 +9,6 @@ Platform:
 | ---------- | :-----------:  | :-----------:  |
 | S2  Pro     |   TX2    |<img src="images/s2pro.png" width="100">|
 | Apex     | Xavier | <img src="http://www.miivii.com/en/img/prodcut1.png" width="100">      |
-
-Camera:
-
-| Brand      | Appearance     | Official Site     |
-| ---------- | :-----------:  | :-----------:  |
-| Calmcar     | <img src="http://www.calmcar.com/assets/images/product/left-camera.png" width="100">      | http://www.calmcar.com     |
-| Etron     | <img src="http://entroninc.com/images/proud/pci.png" width="100">     | http://entroninc.com     |
-| Sensing     |     | http://www.sensing-world.com     |
-| ADAYO     |     | http://www.foryouge.com     |
-| Leopardimaging     | <img src="https://i2.wp.com/leopardimaging.com/wp-content/uploads/2017/11/LI-AR0231-GMSL-R4-060H-.png" width="100">     | https://leopardimaging.com     |
-| SEKONIX     | <img src="http://sekolab.com/wp-content/uploads/2017/04/thumb_camera_600x400.png" width="100">    | http://sekolab.com     |
-| Truly     |      | http://www.sensing-world.com     |
-| Wissen     |     | http://www.wissenstar.com     |
 
 
 ## MiiVii GMSL ROS User Guide
@@ -40,10 +27,17 @@ Clone the repository and build:
 
 ### Run ROS Demo and Display Camera by rviz
 Open 2 terminals, launch miivii_gmsl_ros, rviz.
-Assume we are using only 1 camera in this case.
+
+#### 1 camera connected
 ```
     roslaunch miivii_gmsl_ros 1_node_with_1_camera.launch
 ```
+
+#### 4 camera connected
+```
+    roslaunch miivii_gmsl_ros 1_node_with_4_cameras.launch
+```
+
 You can check the image topic in rviz.
 
 

@@ -60,13 +60,13 @@ class miivii_gmsl_ros_node {
       camCount = 1;
     }
 
+    node_.param("fps", fps, 25);
+
     uint camCount_, camWidth_, camHeight_, fps_;
     camCount_ = camCount;
     camWidth_ = camWidth;
     camHeight_ = camHeight;
     fps_ = fps;
-
-    node_.param("fps", fps, 25);
 
     node_.param("domain", domain_name, std::string("miivii_gmsl_camera"));
 

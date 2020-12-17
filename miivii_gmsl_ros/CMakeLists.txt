@@ -39,7 +39,7 @@ catkin_package(
 ###########
 set(linux_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
-find_path(MIIVIICAMSDK_INCLUDES MiiViiCamSDK.h
+find_path(MIIVIICAMSDK_INCLUDES MvGmslCamera.h
           /opt/miivii/include)
 
 include_directories(include

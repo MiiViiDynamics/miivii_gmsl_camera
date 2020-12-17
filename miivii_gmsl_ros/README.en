@@ -7,7 +7,7 @@ MIIVII GMSL CAMREA ROS Node
 
   The camera topic name is: Node name/image_gmsl_raw*, where 'Node name' is the node name and * is the camera number (for example, connecting one camera, * is 0; if four cameras are connected, * is 0, 1, 2, 3 respectively).
 
-
+  The image format published by topic is: RGBA8
 
 [1 CONFIG]
 
@@ -32,7 +32,7 @@ details as follows:
 
 ```
 mkdir -p [Path of your directory]/catkin_ws/src  #build the directory
-cp -r [path of ros_gmsl_camera sdk] [Path of your directory]/catkin_ws/src  # copy the ros_gmsl_camera sdk files to the catkin_ws directory
+cp -r [path of miivii_gmsl_ros sdk] [Path of your directory]/catkin_ws/src  # copy the miivii_gmsl_ros sdk files to the catkin_ws directory
 cd [Path of your directory]/catkin_ws
 catkin_make
 
@@ -80,9 +80,11 @@ roslaunch miivii_gmsl_ros 2_nodes_with_8_cameras.launch
 
 [4 Image format conversion]
 
-    The image format published by topic is: UYVY. If you need to convert the UYVY format to cv::Mat format, you can convert it in your own program as follows:
+    The image format published by topic is: RGBA8
 
-'''
-cv_bridge::CvImagePtr cv_ptr;
-cv_ptr = cv_bridge::toCvCopy(msg, enc::BGR8);
-'''
+[5 show image]
+    step 1, open a new termiate to launch rviz
+    step 2, click 'Add' button in rviz
+    step 3, select "By topic" in new dialog
+    step 4, In the list, click the theme of the gmsl camera, select the image option under the theme, and click OK.
+    You can see the gmsl camera image

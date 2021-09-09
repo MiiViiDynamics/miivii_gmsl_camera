@@ -14,7 +14,7 @@ find_package(catkin REQUIRED COMPONENTS
              cv_bridge
              camera_info_manager)
 
-find_package(OpenCV REQUIRED )
+find_package(OpenCV 4 REQUIRED )
 find_package(CUDA REQUIRED)
 #find_package(Boost REQUIRED COMPONENTS system thread)
 ## pkg-config libraries

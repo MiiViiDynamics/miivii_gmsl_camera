@@ -28,12 +28,19 @@ namespace miivii
 
         // MiiVii sdk handler
         MvGmslCamera *m_gmsl_camera;
+        camera_context_t ctx[8] = {};
+        struct sync_out_a_cfg_client_t stCameraCfgSend = {};
 
         // manager to handle all calibration files
         camera_info_manager::CameraInfoManager *info_manager_;
 
         // camera global parameters
         int camWidth, camHeight, fps, camCount;
+
+        // TODO change according to cameras
+        std::string camera_fmt_str = "UYVY";
+        std::string output_fmt_str = "ABGR32";
+
         int enable_sync_;
         std::string domain_name, dev_name;
 
@@ -112,10 +119,27 @@ namespace miivii
             ROS_INFO("dev_name = %s   camWidth = %d   camHeight = %d    fps = %d",
                      dev_name.c_str(), camWidth, camHeight, fps);
 
-            m_gmsl_camera = new MvGmslCamera(dev_name, camCount_,
-                                             camWidth_,
-                                             camHeight_,
-                                             fps_);
+            // init miivii camera
+            stCameraCfgSend.async_camera_num = 0;
+            stCameraCfgSend.async_freq = 0;
+            stCameraCfgSend.async_camera_bit_draw = 0;
+            stCameraCfgSend.sync_camera_num = 8;
+            stCameraCfgSend.sync_freq = 30;
+            stCameraCfgSend.sync_camera_bit_draw = 0xff;
+
+            char tmp = dev_name[10];
+            for (int i = 0; i < camCount; i++)
+            {
+                dev_name[10] = tmp + i;
+                ctx[i].dev_node = dev_name;
+                ctx[i].camera_fmt_str = camera_fmt_str;
+                ctx[i].output_fmt_str = output_fmt_str;
+                ctx[i].cam_w = camWidth_;
+                ctx[i].cam_h = camHeight_;
+                ctx[i].out_w = camWidth_;
+                ctx[i].out_h = camHeight_;
+            }
+            m_gmsl_camera = new MvGmslCamera(ctx, camCount, stCameraCfgSend);
 
             // advertise the main image topic
             image_transport::ImageTransport it(node_);
@@ -159,9 +183,12 @@ namespace miivii
 
         bool grab_and_send_image()
         {
+            uint8_t camera_no = dev_name[10] - 0x30;
+            // ROS_INFO("camera_no: %d", camera_no);
             uint64_t timestap;
-            if (m_gmsl_camera->GetImagePtr(gmsl_outbuf, timestap))
+            if (m_gmsl_camera->GetImagePtr(gmsl_outbuf, timestap, camera_no))
             {
+                // ROS_INFO("True time: %f, fetch time: %f", (double)timestap/1e9, ros::Time::now().toSec());
                 ros::Time Ts;
                 if (enable_sync_ == 1)
                 {
@@ -179,7 +206,15 @@ namespace miivii
                     out_msg.header.frame_id = gmsl_camera_frame_id[i];
                     out_msg.header.stamp = Ts;
                     out_msg.encoding = sensor_msgs::image_encodings::RGBA8;
-                    out_msg.image = cv::Mat(camHeight, camWidth, CV_8UC4, gmsl_outbuf[i]);
+                    // TODO now assume the output format is ABGR32
+                    if (ctx[i].output_fmt_str == "UYVY")
+                    {
+                        out_msg.image = cv::Mat(camHeight, camWidth, CV_8UC2, gmsl_outbuf[i]);
+                    }
+                    else if (ctx[i].output_fmt_str == "ABGR32")
+                    {
+                        out_msg.image = cv::Mat(camHeight, camWidth, CV_8UC4, gmsl_outbuf[i]);
+                    }
                     // pub camera info
                     gmsl_camera_info[i].header.stamp = Ts;
                     gmsl_camera_info[i].header.frame_id = gmsl_camera_frame_id[i];

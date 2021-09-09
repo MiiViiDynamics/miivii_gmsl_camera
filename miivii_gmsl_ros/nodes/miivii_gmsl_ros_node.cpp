@@ -37,7 +37,6 @@ namespace miivii
         // camera global parameters
         int camWidth, camHeight, fps, camCount;
 
-        // TODO change according to cameras
         std::string camera_fmt_str = "UYVY";
         std::string output_fmt_str = "ABGR32";
 
@@ -206,7 +205,6 @@ namespace miivii
                     out_msg.header.frame_id = gmsl_camera_frame_id[i];
                     out_msg.header.stamp = Ts;
                     out_msg.encoding = sensor_msgs::image_encodings::RGBA8;
-                    // TODO now assume the output format is ABGR32
                     if (ctx[i].output_fmt_str == "UYVY")
                     {
                         out_msg.image = cv::Mat(camHeight, camWidth, CV_8UC2, gmsl_outbuf[i]);

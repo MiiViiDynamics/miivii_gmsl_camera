@@ -1,0 +1,24 @@
+<launch>
+  <node name="miivii_gmsl_ros" pkg="miivii_gmsl_ros" type="miivii_gmsl_ros_node" output="screen" >
+    <param name="video_device" value="/dev/video0" />
+    <param name="image_width" value="1920" />
+    <param name="image_height" value="1080" />
+    <param name="camCount" value="2" />
+    <param name="enable_sync" value="1" />
+    <param name="fps" value="25" />
+    <param name="domain" value="" />
+    <param name="camera1_topic" value="camera/left" />
+    <param name="camera1_name" value="perception_left" />
+    <param name="camera1_info_topic" value="left/camera_info" />
+    <param name="camera1_cali_file" value="file:///opt/miivii/data/calibration/camera/perception_left.yaml" />
+    <param name="camera1_frame_id" value="camera_perception_left" />
+
+    <param name="camera2_topic" value="camera/right" />
+    <param name="camera2_name" value="perception_right" />
+    <param name="camera2_info_topic" value="right/camera_info" />
+    <param name="camera2_cali_file" value="file:///opt/miivii/data/calibration/camera/perception_right.yaml" />
+    <param name="camera2_frame_id" value="camera_perception_right" />
+
+
+  </node>
+</launch>

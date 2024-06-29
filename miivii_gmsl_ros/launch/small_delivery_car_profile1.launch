@@ -1,0 +1,13 @@
+<launch>  
+  <node pkg="miivii_gmsl_camera" exec="miivii_gmsl_camera_node" name="miivii_gmsl_camera_node" output="screen">  
+    <param name="video0.active" value="true"/>
+    <param name="video1.active" value="true"/>
+    <param name="video2.active" value="true"/>
+    <param name="video3.active" value="true"/>
+    <param name="video4.active" value="true"/>
+    <param name="video4.camera_res" value="1920x1080"/>
+    <param name="video5.active" value="true"/>
+    <param name="video5.camera_res" value="1920x1080"/>
+  </node>
+  <node pkg="rviz2" exec="rviz2" name="rviz2" output="screen" args="-d $(find-pkg-share miivii_gmsl_camera)/config/multi.rviz"/>
+</launch>

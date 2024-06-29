@@ -1,0 +1,5 @@
+<launch>  
+  <node pkg="miivii_gmsl_camera" exec="miivii_gmsl_camera_node" name="miivii_gmsl_camera_node" output="screen" />
+  <node pkg="rviz2" exec="rviz2" name="rviz2" output="screen" args="-d $(find-pkg-share miivii_gmsl_camera)/config/single.rviz"/>
+</launch>
+

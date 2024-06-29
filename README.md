@@ -1,41 +1,36 @@
 # MiiVii GMSL Camera
 
-MiiVii GMSL Camera demo is an application software running under ROS environment. It depends on MiiVii low level GMSL SDK, and can be run on MiiVii S2 Pro, MiiVii Apex.
+MiiVii GMSL Camera demo is an application software running under ROS2 environment. It depends on MiiVii low level GMSL SDK, and can be run on MiiVii device.
 It publish fully synchronized image topics, and color format process is accelerated by hardware, which makes the node cost very limited CPU resource. Also, various camera vendors are supported.
 
 Platform:
 
 | Platform      | Main Chip     | Appearance     |
 | ---------- | :-----------:  | :-----------:  |
-| S2  Pro     |   TX2    |<img src="images/s2pro.png" width="100">|
-| Apex     | Xavier | <img src="http://www.miivii.com/en/img/prodcut1.png" width="100">      |
+| MIIVII APEX AD10    | Orin | <img src="images/apex-ad10.png" width="100">      |
+| MIIVII APEX DUAL ORIN    | Orin | <img src="images/apex-dual-orin.png" width="100">      |
+| MIIVII APEX ORIN NX   | Orin NX | <img src="images/apex-orin-nx.png" width="100">      |
 
 
-## MiiVii GMSL ROS User Guide
+## MiiVii GMSL ROS2 User Guide
 
-The MiiVii GMSL Camera contains only one ROS package miivii_gmsl_ros for now.
+The MiiVii GMSL Camera contains only one ROS2 package miivii_gmsl_ros for now.
 
 ### Compile
 Clone the repository and build:
 ```
     mkdir -p ~/catkin_ws/src & cd ~/catkin_ws/src
     git clone https://github.com/MiiViiDynamics/miivii_gmsl_camera
-    cd ../..
-    catkin_make_isolated
-    source devel_isolated/setup.bash
+    source /opt/ros/humble/setup.bash
+    colcon build
 ```
 
 ### Run ROS Demo and Display Camera by rviz
 Open 2 terminals, launch miivii_gmsl_ros, rviz.
 
-#### 1 camera connected
+#### 1 camera connected, 1280x720
 ```
-    roslaunch miivii_gmsl_ros 1_node_with_1_camera.launch
-```
-
-#### 4 camera connected
-```
-    roslaunch miivii_gmsl_ros 1_node_with_4_cameras.launch
+    ros2 launch miivii_gmsl_camera single.launch
 ```
 
 You can check the image topic in rviz.

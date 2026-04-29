@@ -19,6 +19,10 @@ namespace miivii_gmsl
 
   MiiviiGmslCamera::~MiiviiGmslCamera()
   {
+      if(this->mvcam != nullptr) {
+        delete this->mvcam;
+        this->mvcam = nullptr;
+      }
   }
 
   void MiiviiGmslCamera::SpiltResolution(std::string camera_resolution, uint *width, uint *height)
@@ -246,6 +250,7 @@ namespace miivii_gmsl
     if (!res)
     {
       RCLCPP_ERROR(this->get_logger(), "Get Image Error!!");
+      return;
     }
 
     rclcpp::Clock clock;
